@@ -94,3 +94,5 @@ def paiement_callback(request):
             return JsonResponse({"error": str(e)}, status=500)
 
     return JsonResponse({"error": "Méthode non autorisée"}, status=405)
+def accueil(request):
+    return HttpResponse("Bienvenue sur l’API de Paiement 🧾")

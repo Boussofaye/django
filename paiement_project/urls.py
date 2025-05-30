@@ -19,6 +19,8 @@ from django.contrib import admin
 from django.urls import path
 from django.urls import path, include
 from django.http import HttpResponse
+from paiement.views import accueil  # ← ajoute cette ligne
+
 
 def health_check(request):
     return HttpResponse("OK", status=200)
@@ -27,4 +29,5 @@ urlpatterns = [
     path("admin/", admin.site.urls),
     path('paiement/', include('paiement.urls')),
     path("healthz/", health_check),  # pour Render
+     path("", accueil, name="accueil"), 
 ]
