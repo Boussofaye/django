@@ -1,0 +1,1 @@
+web: gunicorn paiement_project.wsgi
