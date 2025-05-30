@@ -1,1 +1,1 @@
-web: gunicorn paiement_project.wsgi
+web: gunicorn paiement_project.wsgi --bind 0.0.0.0:5432

@@ -17,7 +17,7 @@ def initier_paiement(request):
         url = "https://app.paydunya.com/api/v1/checkout-invoice/create"
 
         # Attention : pas d'espace à la fin des URLs
-        base_url = " https://2475-102-164-186-216.ngrok-free.app"
+        base_url="https://django-1-sewb.onrender.com"
 
         headers = {
             "Content-Type": "application/json",
