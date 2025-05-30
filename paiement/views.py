@@ -43,9 +43,9 @@ def initier_paiement(request):
                 "description": f"Achat de {item_name}"
             },
             "store": {
-                "name": "Ma Boutique",
-                "tagline": "La satisfaction avant tout",
-                "postal_address": "Dakar, Sénégal",
+                "name": "commune de bambey",
+                "tagline": "payer en toute securité",
+                "postal_address": "Bambey, Sénégal",
                 "phone": "762309016"
             },
             "actions": {
@@ -78,7 +78,7 @@ def initier_paiement(request):
 
 
 def paiement_success(request):
-    return HttpResponse("✅ Paiement effectué avec succès. Merci pour votre achat.")
+    return HttpResponse("✅ Paiement effectué avec succès. Vous pouvez effectuer une demande.")
 
 
 def paiement_fail(request):
