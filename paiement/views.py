@@ -46,7 +46,7 @@ def initier_paiement(request):
                 "name": "Ma Boutique",
                 "tagline": "La satisfaction avant tout",
                 "postal_address": "Dakar, Sénégal",
-                "phone": "771234567"
+                "phone": "762309016"
             },
             "actions": {
                 "cancel_url": f"{base_url}/paiement/fail/",
@@ -63,7 +63,7 @@ def initier_paiement(request):
         print("Réponse PayDunya:", json.dumps(result, indent=2, ensure_ascii=False))
 
         if result.get("response_code") == "00":
-            redirect_url = result.get("response", {}).get("checkout_url")
+            redirect_url = result.get("response_text")  # Correction ici
             if redirect_url:
                 return JsonResponse({"redirect_url": redirect_url})
             else:
