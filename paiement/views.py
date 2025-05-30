@@ -1,5 +1,6 @@
 import json
 import requests
+import traceback
 from django.conf import settings
 from django.http import JsonResponse, HttpResponse
 from django.views.decorators.csrf import csrf_exempt
@@ -17,7 +18,7 @@ def initier_paiement(request):
         url = "https://app.paydunya.com/api/v1/checkout-invoice/create"
 
         # Attention : pas d'espace à la fin des URLs
-        base_url="https://django-1-sewb.onrender.com"
+        base_url = "https://django-1-sewb.onrender.com"
 
         headers = {
             "Content-Type": "application/json",
@@ -71,6 +72,8 @@ def initier_paiement(request):
             return JsonResponse({"error": "Erreur PayDunya", "details": result}, status=500)
 
     except Exception as e:
+        print("Erreur lors de l'initiation du paiement :", e)
+        traceback.print_exc()
         return JsonResponse({"error": str(e)}, status=500)
 
 
@@ -91,8 +94,12 @@ def paiement_callback(request):
             # TODO : enregistrer la transaction dans la base de données ici
             return JsonResponse({"status": "ok"}, status=200)
         except Exception as e:
+            print("Erreur dans callback paiement :", e)
+            traceback.print_exc()
             return JsonResponse({"error": str(e)}, status=500)
 
     return JsonResponse({"error": "Méthode non autorisée"}, status=405)
+
+
 def accueil(request):
     return HttpResponse("Bienvenue sur l’API de Paiement 🧾")

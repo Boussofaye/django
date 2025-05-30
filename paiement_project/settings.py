@@ -11,7 +11,7 @@ PAYDUNYA_PRIVATE_KEY = config('PAYDUNYA_PRIVATE_KEY')
 PAYDUNYA_PUBLIC_KEY = config('PAYDUNYA_PUBLIC_KEY')
 PAYDUNYA_TOKEN = config('PAYDUNYA_TOKEN')
 
-DEBUG = False  # En prod, toujours False !
+DEBUG = True # En prod, toujours False !
 
 # Remplace ce domaine par celui fourni par Render ou ton propre domaine
 ALLOWED_HOSTS = ['django-1-sewb.onrender.com', '127.0.0.1', 'localhost']
